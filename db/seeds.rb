@@ -50,3 +50,13 @@ Product.create!(title: 'Rails Test Prescriptions',
       </p>},
   image_url: 'rtp.jpg',
   price: 34.95)
+# . . .
+Product.create!(title: 'Rails Book',
+  description: 
+    %{<p>
+        This book will have you coding in no time!  Just take a crack at it.  
+      </p>},
+  image_url: 'rails.jpg',
+  price: 25.50)
+
+
