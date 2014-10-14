@@ -1,4 +1,5 @@
-<h2>Your Cart</h2>
+<% unless cart.line_items.empty? %> <!--this will cause the cart only to appear if it contains items-->
+<div class="cart_title">Your Cart</div>
 <table>
 	<%= render(cart.line_items) %>
 
@@ -9,5 +10,7 @@
 </table>
 
 <%= button_to 'Empty Cart', @cart, method: :delete, data: {confirm: 'Are you sure?'} %>
+
+<% end %>
 
 <!--This partial replaces the @cart.line_items loop and the partial that was in views/carts/show.html.erb-->

@@ -1,0 +1,6 @@
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); } //reveals the cart once it contains an item
+
+$('#cart').html("<%= escape_javascript render(@cart) %>");
+//this is an AJAX application
+$('#current_item').css({'background-color':'#88ff88'}). //sets initial background-color
+	animate({'background-color':'#114411'}, 1000); //transitions back to the original color over 1000 milliseconds

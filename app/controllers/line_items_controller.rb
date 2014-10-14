@@ -32,6 +32,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to store_url } #instead of redirecting to a cart page this now refreshes the store page
+        format.js   { @current_item = @line_item } #allows us to access line_item in the template
         format.json { render action: 'show', status: :created, location: @line_item }
       else
         format.html { render action: 'new' }
