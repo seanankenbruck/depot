@@ -1,4 +1,5 @@
 class LineItem < ActiveRecord::Base 
+  belongs_to :order #line items can now be used by orders
   belongs_to :product #rows in the LineItem model are children of rows in the products table
   belongs_to :cart	  #rows in the LineItem model are children of rows in the carts table
 

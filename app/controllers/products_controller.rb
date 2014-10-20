@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  # GET /products
+  # GET /products # current product_ids are [6, 7, 8, 9]
   # GET /products.json
   def index
     @products = Product.all
@@ -58,6 +58,16 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
+    end
+  end
+
+  def who_bought
+    @product = Product.find(params[:id])
+    @latest_order = @product.orders.order(:updated_at).last #fetches the product
+    if stale?(@latest_order) #check to see if the request is "stale"
+      respond_to do |format|
+        format.atom #this line wil cause rails to look for a template named who_bought.atom.builder
+      end
     end
   end
 

@@ -1,3 +1,5 @@
+$('#notice').hide();
+
 if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); } //reveals the cart once it contains an item
 
 $('#cart').html("<%= escape_javascript render(@cart) %>");
